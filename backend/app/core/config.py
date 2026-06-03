@@ -14,10 +14,7 @@ class Settings(BaseSettings):
     whisper_model: str = Field(default="base", alias="WHISPER_MODEL")
     auth_token_secret: str = Field(default="", alias="AUTH_TOKEN_SECRET")
     auth_token_hours: int = Field(default=24, alias="AUTH_TOKEN_HOURS")
-    allowed_origins_raw: str = Field(
-        default="http://localhost:3000,http://127.0.0.1:3000",
-        alias="ALLOWED_ORIGINS",
-    )
+    allowed_origins_raw: str =["*"]
 
     model_config = SettingsConfigDict(
         env_file=".env",
