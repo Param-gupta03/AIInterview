@@ -107,7 +107,7 @@ export default function FaceDetection({ isActive, onWarning }: FaceDetectionProp
   if (!isActive) return null;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border-4 border-slate-700 bg-black shadow-2xl mb-6 aspect-video max-w-md mx-auto">
+    <div className="relative w-full overflow-hidden rounded-2xl border-4 border-black bg-black shadow-md mb-6 aspect-video max-w-md mx-auto">
       <div className="relative h-full w-full">
         <video
           ref={videoRef}
@@ -137,7 +137,7 @@ export default function FaceDetection({ isActive, onWarning }: FaceDetectionProp
         </div>
 
         {/* Scanning Animation Line */}
-        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 animate-scan" />
+        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50 animate-scan" />
       </div>
       
       <style jsx>{`

@@ -23,25 +23,25 @@ export default function SetupPanel({ disabled, settings, onSettingsChange, onSta
   };
 
   return (
-    <div className="space-y-6 text-left animate-fade-in">
-      <div className="rounded-xl bg-surface-700/30 p-4 border border-surface-600">
-        <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-3">Permissions</h3>
+    <div className="space-y-6 text-left animate-fade-in select-none">
+      <div className="rounded-2xl bg-zinc-50 p-5 border border-zinc-200">
+        <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">Permissions</h3>
         <button
           type="button"
           onClick={requestMic}
-          className={`flex w-full items-center justify-between rounded-lg border px-4 py-3 transition-all ${
+          className={`flex w-full items-center justify-between rounded-xl border px-4 py-3.5 transition-all duration-300 font-bold active:scale-[0.99] ${
             micAllowed 
-              ? "border-accent/50 bg-accent/10 text-accent" 
-              : "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20"
+              ? "border-emerald-200 bg-emerald-50 text-emerald-700 cursor-default" 
+              : "border-zinc-200 bg-white text-zinc-900 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 shadow-sm"
           }`}
         >
-          <span className="font-medium">{micAllowed ? "Microphone Access Granted" : "Enable Microphone"}</span>
-          <span className="text-xl">{micAllowed ? "✓" : "🎙️"}</span>
+          <span className="text-sm font-semibold">{micAllowed ? "Microphone Access Granted" : "Enable Microphone"}</span>
+          <span className="text-base">{micAllowed ? "✓" : "🎙️"}</span>
         </button>
       </div>
 
-      <div className="rounded-xl bg-surface-700/30 p-4 border border-surface-600">
-        <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-3">Configuration</h3>
+      <div className="rounded-2xl bg-zinc-50 p-5 border border-zinc-200">
+        <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">Configuration</h3>
         <InterviewSettingsPanel disabled={disabled} settings={settings} onChange={onSettingsChange} />
       </div>
 
@@ -49,12 +49,12 @@ export default function SetupPanel({ disabled, settings, onSettingsChange, onSta
         type="button"
         disabled={!micAllowed || disabled}
         onClick={onStart}
-        className="btn-primary w-full shadow-lg shadow-primary/20 disabled:shadow-none"
+        className="w-full py-4 px-6 rounded-2xl bg-zinc-950 text-white font-bold tracking-wide transition-all duration-300 border border-zinc-950 hover:bg-emerald-600 hover:border-emerald-600 active:scale-[0.98] disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-zinc-950 disabled:hover:border-zinc-950"
       >
         {disabled ? "Initializing..." : "Begin Professional Interview"}
       </button>
       
-      <p className="text-center text-xs text-text-secondary">
+      <p className="text-center text-[11px] font-semibold text-zinc-400 leading-normal">
         By starting, you agree to the automated monitoring for quality and integrity.
       </p>
     </div>

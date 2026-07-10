@@ -38,10 +38,10 @@ export default function InterviewShell(props: InterviewShellProps) {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-surface-900 p-4 font-sans text-text-primary">
-      <div className="card w-full max-w-2xl p-8 text-center animate-fade-in relative overflow-hidden">
-        {/* Decorative background element */}
-        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 p-4 font-sans text-zinc-950 select-none">
+      <div className="w-full max-w-2xl bg-white border border-zinc-200 rounded-3xl p-8 md:p-10 shadow-sm relative overflow-hidden animate-fade-in">
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 h-1.5 w-full bg-zinc-950 pointer-events-none" />
         
         <SessionBar disabled={isActive} email={props.email} onLogout={props.onLogout} />
         
@@ -84,11 +84,9 @@ export default function InterviewShell(props: InterviewShellProps) {
 
         {/* Floating Warning Notification */}
         {warning && (
-          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] animate-bounce">
-            <div className="bg-red-500 text-white px-6 py-3 rounded-full shadow-2xl font-bold flex items-center gap-2 border-2 border-white/20">
-              <span className="text-xl">⚠️</span>
-              {warning}
-            </div>
+          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] bg-red-600 text-white px-6 py-3.5 rounded-full shadow-lg font-bold flex items-center gap-2 border border-red-700 text-sm animate-bounce">
+            <span className="text-base">⚠️</span>
+            <span>{warning}</span>
           </div>
         )}
       </div>

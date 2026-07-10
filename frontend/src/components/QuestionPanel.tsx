@@ -22,18 +22,18 @@ export default function QuestionPanel({
   total,
 }: QuestionPanelProps) {
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in select-none">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-bold text-primary uppercase tracking-widest">Technical Assessment</span>
-        <span className="rounded-full bg-surface-700 px-3 py-1 text-xs font-semibold text-text-secondary">
+        <span className="text-xs font-extrabold text-zinc-950 uppercase tracking-widest">Technical Assessment</span>
+        <span className="rounded-full bg-zinc-100 px-3.5 py-1 text-xs font-bold text-zinc-500">
           Step {current} / {total}
         </span>
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl border border-surface-700 bg-surface-900 p-8 shadow-inner">
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 p-8 shadow-sm">
         {/* Subtle accent line */}
-        <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-accent opacity-50" />
-        <h2 className="text-xl font-medium leading-relaxed text-text-primary">
+        <div className="absolute top-0 left-0 h-1.5 w-full bg-zinc-950" />
+        <h2 className="text-xl font-semibold leading-relaxed text-zinc-900">
           {question}
         </h2>
       </div>
@@ -43,7 +43,7 @@ export default function QuestionPanel({
           type="button" 
           disabled={disabled || isRecording || current === 1} 
           onClick={onPrev} 
-          className="w-full sm:w-auto rounded-xl border border-surface-600 bg-surface-800 px-6 py-4 font-semibold text-text-secondary transition-all hover:bg-surface-700 hover:text-text-primary disabled:opacity-30 disabled:cursor-not-allowed text-sm"
+          className="flex items-center justify-center gap-2 w-full sm:w-auto py-4 px-8 rounded-2xl bg-white text-zinc-900 font-bold border border-zinc-200 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 active:scale-[0.98] disabled:opacity-30 disabled:cursor-not-allowed text-sm"
         >
           Previous
         </button>
@@ -56,7 +56,7 @@ export default function QuestionPanel({
           type="button" 
           disabled={disabled || isRecording} 
           onClick={onSkip} 
-          className="w-full sm:w-auto rounded-xl border border-surface-600 bg-surface-800 px-6 py-4 font-semibold text-text-secondary transition-all hover:bg-surface-700 hover:text-text-primary disabled:opacity-30 disabled:cursor-not-allowed text-sm"
+          className="flex items-center justify-center gap-2 w-full sm:w-auto py-4 px-8 rounded-2xl bg-white text-zinc-900 font-bold border border-zinc-200 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 active:scale-[0.98] disabled:opacity-30 disabled:cursor-not-allowed text-sm"
         >
           Skip / Next
         </button>
@@ -64,8 +64,8 @@ export default function QuestionPanel({
       
       {isRecording && (
         <div className="flex items-center justify-center gap-2 animate-pulse">
-          <div className="h-2 w-2 rounded-full bg-red-500" />
-          <span className="text-xs font-medium text-red-500 uppercase tracking-tighter">Recording active...</span>
+          <div className="h-2 w-2 rounded-full bg-red-600" />
+          <span className="text-xs font-bold text-red-600 uppercase tracking-widest">Recording active...</span>
         </div>
       )}
     </div>

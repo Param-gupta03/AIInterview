@@ -16,15 +16,15 @@ export default function AuthInput({
   maxLength,
 }: AuthInputProps) {
   return (
-    <div className="space-y-2">
-      <label className="text-xs font-bold text-text-secondary uppercase tracking-wider">
+    <div className="space-y-2 select-none">
+      <label className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block">
         {label}
       </label>
       <input
         type={type}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-surface-600 bg-surface-800 px-4 py-3 text-sm text-text-primary outline-none ring-primary/20 transition-all focus:border-primary focus:ring-4"
+        className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition-all duration-200 focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 font-medium"
         minLength={minLength}
         maxLength={maxLength}
         required

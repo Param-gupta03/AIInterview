@@ -36,9 +36,8 @@ class GeminiInterviewer:
             if len(questions) != 10:
                 raise ValueError("Expected 10 questions.")
             return [str(question) for question in questions]
-        except HTTPException as exc:
-            if exc.status_code != status.HTTP_429_TOO_MANY_REQUESTS:
-                raise
+        except Exception as exc:
+            # Fallback to local questions for any error (API key error, timeout, rate limit, parse error, etc.)
             return generate_local_questions(domain, difficulty)
 
     async def evaluate_interview(
@@ -54,9 +53,8 @@ class GeminiInterviewer:
             text = payload["candidates"][0]["content"]["parts"][0]["text"]
             result = EvaluationResponse.model_validate(json.loads(text))
             return result.model_copy(update={"evaluator": "Gemini"})
-        except HTTPException as exc:
-            if exc.status_code != status.HTTP_429_TOO_MANY_REQUESTS:
-                raise
+        except Exception as exc:
+            # Fallback to local evaluation for any error
             feedback, score = evaluate_interview_locally(answers, answered_count, skipped_count)
             return EvaluationResponse(feedback=feedback, score=score, evaluator="Local fallback")
 

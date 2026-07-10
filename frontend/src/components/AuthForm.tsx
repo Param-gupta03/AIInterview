@@ -41,18 +41,18 @@ export default function AuthForm({ onAuthenticated }: AuthFormProps) {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-surface-900 p-4 font-sans text-text-primary">
-      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-primary via-accent to-primary opacity-50" />
+    <main className="flex min-h-screen items-center justify-center bg-zinc-50 p-4 font-sans text-zinc-950 select-none">
+      <div className="absolute top-0 left-0 h-1.5 w-full bg-zinc-950" />
       
-      <section className="card w-full max-w-md p-8 shadow-2xl animate-fade-in">
+      <section className="w-full max-w-md bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm relative overflow-hidden animate-fade-in">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-2xl">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-200 text-2xl shadow-sm">
             💎
           </div>
-          <h1 className="text-3xl font-black tracking-tight text-text-primary">
+          <h1 className="text-3xl font-extrabold tracking-tight text-zinc-950">
             Welcome Back
           </h1>
-          <p className="mt-2 text-sm text-text-secondary font-medium">
+          <p className="mt-2 text-sm text-zinc-400 font-semibold">
             Professional AI Interview Platform
           </p>
         </div>
@@ -71,16 +71,16 @@ export default function AuthForm({ onAuthenticated }: AuthFormProps) {
           <AuthInput label="Secure Password" type="password" value={password} onChange={setPassword} minLength={mode === "signup" ? 6 : 1} maxLength={128} />
           
           {error && (
-            <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm font-medium text-red-400">
-              <span className="mr-2">⚠️</span>
-              {error}
+            <div className="w-full p-4 rounded-xl border border-red-200 bg-red-50 text-red-800 text-sm font-semibold flex items-center gap-2">
+              <span>⚠️</span>
+              <span>{error}</span>
             </div>
           )}
 
           <button 
             type="submit" 
             disabled={isSubmitting} 
-            className="btn-primary w-full mt-4 flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+            className="flex items-center justify-center gap-2 w-full mt-4 py-4 px-6 rounded-2xl bg-zinc-950 text-white font-bold tracking-wide transition-all duration-300 border border-zinc-950 hover:bg-emerald-600 hover:border-emerald-600 active:scale-[0.98] disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
@@ -93,7 +93,7 @@ export default function AuthForm({ onAuthenticated }: AuthFormProps) {
           </button>
         </form>
 
-        <p className="mt-8 text-center text-xs text-text-secondary leading-relaxed">
+        <p className="mt-8 text-center text-xs text-zinc-400 leading-relaxed font-semibold">
           Secure, encrypted session. <br />
           By continuing, you adhere to our professional conduct guidelines.
         </p>
